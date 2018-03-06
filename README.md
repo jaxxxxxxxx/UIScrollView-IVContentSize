@@ -1,7 +1,7 @@
 # UIScrollView-IVContentSize
 
 ## 需求
-  最近在开发中遇到了，tableView的tableViewHeader超过一定高度时，PromptView显示不完全的情况，如下图：
+  最近在开发中遇到了，tableView的tableViewHeader超过一定高度时，提示数据为空的view显示不完全的情况，如下图：
   ![1](https://github.com/jaxxxxxxxx/UIScrollView-IVContentSize/blob/master/Image/1.gif)  
   基于这个需求，所以写了UIScrollView+IVContentSize。
 ## 使用
