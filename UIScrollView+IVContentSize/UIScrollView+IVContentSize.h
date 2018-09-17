@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #define PromptView_Tag 10000
-#define PromptView_Bottom 100
+#define PromptView_Top 60
+#define PromptView_Bottom 140
 
 @interface UIScrollView (IVContentSize)
 
@@ -17,6 +18,12 @@
  是否自动调整contentSize
  */
 @property (assign, nonatomic) BOOL iv_autoContentSize;
+
+
+/**
+ promptView到订的距离
+ */
+@property (assign, nonatomic) NSInteger iv_TopPadding;
 
 
 /**
@@ -29,5 +36,7 @@
  promptViewTag default:PromptView_Tag
  */
 @property (assign, nonatomic) NSInteger iv_promptViewTag;
+
+
 
 @end

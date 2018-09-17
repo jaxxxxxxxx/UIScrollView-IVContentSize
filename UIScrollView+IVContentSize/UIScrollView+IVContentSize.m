@@ -23,7 +23,11 @@
         
         if (view && !view.isHidden) {
             CGSize size = CGSizeMake(CGRectGetWidth(self.frame),
-                                     CGRectGetMaxY(view.frame) + self.iv_bottomPadding);
+                                     CGRectGetHeight(view.frame) + self.iv_bottomPadding + contentSize.height);
+            if ([self isKindOfClass:[UITableView class]]) {
+                UITableView *tableView = (UITableView *)self;
+                view.y = tableView.tableHeaderView.height + self.iv_TopPadding;
+            }
             contentSize = size;
         }
     }
@@ -40,6 +44,20 @@
     objc_setAssociatedObject(self,
                              @selector(iv_autoContentSize),
                              @(iv_autoContentSize),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSInteger)iv_TopPadding {
+    NSInteger topPadding = [objc_getAssociatedObject(self, _cmd) integerValue];
+    if (topPadding == 0)
+        return PromptView_Top;
+    return topPadding;
+}
+
+- (void)setIv_TopPadding:(NSInteger)iv_TopPadding {
+    objc_setAssociatedObject(self,
+                             @selector(iv_TopPadding),
+                             @(iv_TopPadding),
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
